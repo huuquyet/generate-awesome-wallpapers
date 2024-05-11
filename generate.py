@@ -1,5 +1,7 @@
-from os import getenv
 import requests
+from os import getenv
+import json
+import random
 
 API_TOKEN = getenv("HF_API_TOKEN")
 API_URL = "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0"
@@ -11,6 +13,13 @@ def query(payload):
         with open("wallpaper.png", "wb") as f:
             f.write(response.content)
 
-data = query({        
-  "inputs": "A luminous field of fireflies blinking rhythmically against the deep velvet of a summer night",
-})
+# Load prompt list
+with open("prompts.json") as fp:
+  prompts = json.load(fp)
+
+# Get random index
+random_index = random.choice(prompts)
+print(random_index["inputs"])
+
+# Generate wallpaper by random prompt
+data = query(random_index)
