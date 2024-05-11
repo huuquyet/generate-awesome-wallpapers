@@ -1,9 +1,5 @@
-from dotenv import load_dotenv
 from os import getenv
 import requests
-
-# Load environment variables from the .env file (if present)
-load_dotenv()
 
 API_TOKEN = getenv("HF_API_TOKEN")
 API_URL = "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0"
