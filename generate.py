@@ -4,7 +4,17 @@ import json
 import random
 
 API_TOKEN = getenv("HF_API_TOKEN")
-API_URL = "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0"
+models = [
+    "runwayml/stable-diffusion-v1-5",
+    "CompVis/stable-diffusion-v1-4",
+    "stabilityai/stable-diffusion-xl-base-1.0",
+    "stabilityai/stable-diffusion-2-1",
+    "prompthero/openjourney",
+    "prompthero/openjourney-v4",
+]
+
+random_model = random.choice(models)
+API_URL = f"https://api-inference.huggingface.co/models/{random_model}"
 headers = {"Authorization": f"Bearer {API_TOKEN}"}
 
 def query(payload):
@@ -19,7 +29,7 @@ with open("prompts.json") as fp:
 
 # Get random index
 random_index = random.choice(prompts)
-print(random_index["inputs"])
+print(f"Model: {random_model}; prompt: {random_index['inputs']}")
 
 # Generate wallpaper by random prompt
 data = query(random_index)
