@@ -1,7 +1,8 @@
 import { Buffer } from 'node:buffer'
-import { readFileSync, writeFileSync } from 'node:fs'
+import { writeFileSync } from 'node:fs'
 import { env } from 'node:process'
 import * as core from '@actions/core'
+import { default as prompts } from '../assets/prompts.json'
 
 // Envinroment secrets get from https://huggingface.co/settings/tokens
 const API_TOKEN = env.HF_API_TOKEN
@@ -45,8 +46,7 @@ export async function run(): Promise<void> {
   try {
     // Log the current timestamp
     core.debug(new Date().toTimeString())
-    const jsonObject = readFileSync('./assets/prompts.json', 'utf-8')
-    const prompts = JSON.parse(jsonObject)
+    // Get random prompt from json file
     const data: any = getRandomElement(prompts)
 
     query(data).then(async (response) => {
