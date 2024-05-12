@@ -45,12 +45,12 @@ export async function run(): Promise<void> {
   try {
     // Log the current timestamp
     core.debug(new Date().toTimeString())
-    const jsonObject = readFileSync('../assets/prompts.json', 'utf-8')
+    const jsonObject = readFileSync('./assets/prompts.json', 'utf-8')
     const prompts = JSON.parse(jsonObject)
     const data: any = getRandomElement(prompts)
 
     query(data).then(async (response) => {
-      const destinationPath = '../assets/wallpaper.jpg'
+      const destinationPath = './assets/wallpaper.jpg'
       // create buffer from response
       const buffer = Buffer.from(response)
       // Save image to a local file
