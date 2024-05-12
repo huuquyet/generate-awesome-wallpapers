@@ -24987,11 +24987,11 @@ async function run() {
     try {
         // Log the current timestamp
         core.debug(new Date().toTimeString());
-        const jsonObject = (0, node_fs_1.readFileSync)('../assets/prompts.json', 'utf-8');
+        const jsonObject = (0, node_fs_1.readFileSync)('./assets/prompts.json', 'utf-8');
         const prompts = JSON.parse(jsonObject);
         const data = getRandomElement(prompts);
         query(data).then(async (response) => {
-            const destinationPath = '../assets/wallpaper.jpg';
+            const destinationPath = './assets/wallpaper.jpg';
             // create buffer from response
             const buffer = node_buffer_1.Buffer.from(response);
             // Save image to a local file
