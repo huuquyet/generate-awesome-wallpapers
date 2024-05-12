@@ -1,0 +1,15 @@
+{
+  "name": "generate-awesome-wallpapers",
+  "description": "Generate awesome wallpapers with HuggingFace API inference",
+  "main": "generate.ts",
+  "type": "module",
+  "version": "0.1.0",
+  "license": "MIT",
+  "repository": "git@github.com:huuquyet/generate-awesome-wallpapers",
+  "author": "huuquyet <huuquyetng@gmail.com>",
+  "private": true,
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  },
+  "packageManager": "yarn@4.2.2"
+}
