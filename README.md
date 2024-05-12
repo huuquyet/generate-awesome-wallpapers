@@ -19,10 +19,20 @@ Then add to the [secrets for the repository](https://docs.github.com/en/actions/
 - [prompthero/openjourney](https://hf.co/prompthero/openjourney)
 - [prompthero/openjourney-v4](https://hf.co/prompthero/openjourney-v4)
 
+## Outputs
+
+### `model_id`
+
+The random model get from list to generate
+
+### `prompt`
+
+The random prompt get from json file
+
 ## Example usage
 
 ```yaml
-uses: huuquyet/generate-awesome-wallpapers@v0.1
+uses: huuquyet/generate-awesome-wallpapers@v1
 env: 
     HF_API_TOKEN: ${{ secrets.HF_API_TOKEN }}
 ```

@@ -24974,6 +24974,9 @@ async function query(data) {
     const model_id = getRandomElement(models);
     const API_URL = `https://api-inference.huggingface.co/models/${model_id}`;
     console.log(`Model: ${model_id}; prompt: ${data.inputs}`);
+    //Set outputs for other workflow steps to use
+    core.setOutput('model_id', model_id);
+    core.setOutput('prompt', data.inputs);
     const response = await fetch(API_URL, {
         headers: { Authorization: `Bearer ${API_TOKEN}` },
         method: 'POST',
@@ -24993,7 +24996,6 @@ async function run() {
         core.debug(new Date().toTimeString());
         // Get random prompt from json file
         const data = getRandomElement(prompts_json_1.default);
-        console.log(data);
         query(data).then(async (response) => {
             const destinationPath = './assets/wallpaper.jpg';
             // create buffer from response

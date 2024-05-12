@@ -25,7 +25,11 @@ function getRandomElement<T>(array: Array<T>): T {
 async function query(data: { inputs: string }) {
   const model_id = getRandomElement(models)
   const API_URL = `https://api-inference.huggingface.co/models/${model_id}`
+
   console.log(`Model: ${model_id}; prompt: ${data.inputs}`)
+  //Set outputs for other workflow steps to use
+  core.setOutput('model_id', model_id)
+  core.setOutput('prompt', data.inputs)
 
   const response = await fetch(API_URL, {
     headers: { Authorization: `Bearer ${API_TOKEN}` },
