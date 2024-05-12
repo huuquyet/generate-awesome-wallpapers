@@ -24950,9 +24950,27 @@ const node_buffer_1 = __nccwpck_require__(2254);
 const node_fs_1 = __nccwpck_require__(7561);
 const node_process_1 = __nccwpck_require__(7742);
 const core = __importStar(__nccwpck_require__(4016));
+// Envinroment secrets get from https://huggingface.co/settings/tokens
 const API_TOKEN = node_process_1.env.HF_API_TOKEN;
+// The list of text-to-image models that support inference API
+const models = [
+    'runwayml/stable-diffusion-v1-5',
+    'CompVis/stable-diffusion-v1-4',
+    'stabilityai/stable-diffusion-xl-base-1.0',
+    'stabilityai/stable-diffusion-2-1',
+    'prompthero/openjourney',
+    'prompthero/openjourney-v4',
+];
+/** Get random element of any array and type safe */
+function getRandomElement(array) {
+    return array[Math.floor(Math.random() * array.length)];
+}
+/** Fetch text-to-image models with inference api */
 async function query(data) {
-    const response = await fetch('https://api-inference.huggingface.co/models/runwayml/stable-diffusion-v1-5', {
+    const model_id = getRandomElement(models);
+    const API_URL = `https://api-inference.huggingface.co/models/${model_id}`;
+    console.log(`Model: ${model_id}; prompt: ${data.inputs}`);
+    const response = await fetch(API_URL, {
         headers: { Authorization: `Bearer ${API_TOKEN}` },
         method: 'POST',
         body: JSON.stringify(data),
@@ -24964,22 +24982,22 @@ async function query(data) {
     const result = await response.arrayBuffer();
     return result;
 }
+/** Get random prompt and query the inference api, then save the image */
 async function run() {
     try {
-        // Log the current timestamp, wait, then log the new timestamp
+        // Log the current timestamp
         core.debug(new Date().toTimeString());
-        query({
-            inputs: 'A pristine, turquoise glacier lake nestled among towering alpine peaks',
-        }).then(async (response) => {
-            const destinationPath = './assets/wallpaper.jpg';
+        const jsonObject = (0, node_fs_1.readFileSync)('../assets/prompts.json', 'utf-8');
+        const prompts = JSON.parse(jsonObject);
+        const data = getRandomElement(prompts);
+        query(data).then(async (response) => {
+            const destinationPath = '../assets/wallpaper.jpg';
             // create buffer from response
             const buffer = node_buffer_1.Buffer.from(response);
             // Save image to a local file
             await (0, node_fs_1.writeFileSync)(destinationPath, buffer);
             core.debug(`Image saved to ${destinationPath}`);
         });
-        // Set outputs for other workflow steps to use
-        core.debug(new Date().toTimeString());
     }
     catch (error) {
         // Fail the workflow run if an error occurs
