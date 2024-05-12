@@ -1,19 +1,26 @@
-# This workflow will install Python dependencies, run tests and lint with a single version of Python
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
-
 name: Generate awesome wallpapers
 
 on:
   # Allows to manually run the job at any time
   workflow_dispatch:
+  # Allow workflow to be reusable
+  workflow_call:
+    secrets:
+      HF_API_TOKEN:
+        required: true
   # Run on every push or pull request on main branch
-  # push:
-  #   branches: [ "main" ]
-  # pull_request:
-  #   branches: [ "main" ]
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 permissions:
   contents: write
+
+# Only a single workflow in the same concurrency will run at the same time
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
 
 jobs:
   generate_wallpaper:
@@ -24,37 +31,11 @@ jobs:
     # Checkout the main branch
     - uses: actions/checkout@v4
 
-    # Setup Python environment
-    - name: Set up Python 3.12
-      uses: actions/setup-python@v5
-      with:
-        python-version: "3.12"
-        cache: pip
-
-    # Install dependencies
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-
-    # Linting with ruff
-    - name: Lint with Ruff
-      run: |
-        pip install ruff
-        ruff --output-format=github .
-      continue-on-error: true
-
-    # Testing
-    # - name: Test with pytest
-      # run: |
-        # pip install pytest
-        # pytest
-
-    # Generate awesome wallpapers
+    # Uses action in the root directory to generate awesome wallpapers
     - name: Generate awesome wallpapers
+      uses: ./
       env: 
         HF_API_TOKEN: ${{ secrets.HF_API_TOKEN }}
-      run: python generate.py
 
     # Push awesome wallpapers to main branch
     - name: Push the awesome wallpapers to main branch
