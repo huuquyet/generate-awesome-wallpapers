@@ -6,7 +6,6 @@
   "author": "huuquyet <huuquyetng@gmail.com>",
   "private": true,
   "license": "MIT",
-  "type": "module",
   "main": "src/index.ts",
   "exports": {
     ".": "./dist/index.js"
