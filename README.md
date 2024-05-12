@@ -22,7 +22,7 @@ Then add to the [secrets for the repository](https://docs.github.com/en/actions/
 ## Example usage
 
 ```yaml
-uses: huuquyet/generate-awesome-wallpapers@b010d2a3b666ea3c36391613e56bb019fcec258d
+uses: huuquyet/generate-awesome-wallpapers@v0.1
 env: 
     HF_API_TOKEN: ${{ secrets.HF_API_TOKEN }}
 ```
