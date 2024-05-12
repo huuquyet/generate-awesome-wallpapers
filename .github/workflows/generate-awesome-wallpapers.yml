@@ -1,4 +1,4 @@
-name: Generate awesome wallpapers
+name: Generate awesome wallpapers with Javascript action
 
 on:
   # Allows to manually run the job at any time

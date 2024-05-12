@@ -1,12 +1,12 @@
 name: 'Generate awesome wallpapers'
-description: 'Generate awesome wallpapers with HuggingFace API inference'
+description: 'A javascript action to generate awesome wallpapers with HuggingFace API inference'
 author: huuquyet
 
 # Add your action's branding here. This will appear on the GitHub Marketplace.
 branding:
-  icon: 'heart'
-  color: 'red'
+  icon: 'image'
+  color: 'yellow'
 
 runs:
   using: 'node20'
-  main: dist/index.ts
+  main: dist/index.js
