@@ -24,7 +24,7 @@ def query(payload):
             f.write(response.content)
 
 # Load prompt list
-with open("prompts.json") as fp:
+with open("./assets/prompts.json") as fp:
   prompts = json.load(fp)
 
 # Get random index

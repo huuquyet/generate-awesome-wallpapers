@@ -1,6 +1,6 @@
 {
   "name": "generate-awesome-wallpapers",
-  "description": "Generate awesome wallpapers with HuggingFace API inference",
+  "description": "Generate awesome wallpapers with HuggingFace Inference API (serverless)",
   "version": "0.1.0",
   "repository": "git@github.com:huuquyet/generate-awesome-wallpapers",
   "author": "huuquyet <huuquyetng@gmail.com>",
