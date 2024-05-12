@@ -20,7 +20,7 @@ headers = {"Authorization": f"Bearer {API_TOKEN}"}
 def query(payload):
     response = requests.post(API_URL, headers=headers, json=payload)
     if response.status_code == 200:
-        with open("wallpaper.png", "wb") as f:
+        with open("./assets/wallpaper.jpg", "wb") as f:
             f.write(response.content)
 
 # Load prompt list
