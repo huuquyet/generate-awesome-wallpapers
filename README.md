@@ -2,6 +2,14 @@
 
 This action generate awesome wallpapers using HuggingFace Inference API (serverless) to call text-to-image models
 
+**🖼️ This awesome wallpaper generated automatically everyday**
+  
+![Awesome Wallpapers](./assets/wallpaper.jpg)
+
+<!-- START_CAPTION -->
+
+<!-- END_CAPTION -->
+
 ## API Token
 
 ### `HF_API_TOKEN`
