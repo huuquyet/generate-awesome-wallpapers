@@ -36,3 +36,5 @@ uses: huuquyet/generate-awesome-wallpapers@v1
 env: 
     HF_API_TOKEN: ${{ secrets.HF_API_TOKEN }}
 ```
+
+Please check out [my profile](https://github.com/huuquyet) for live demo
