@@ -24944,39 +24944,18 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.run = void 0;
 const node_buffer_1 = __nccwpck_require__(2254);
-const node_fs_1 = __nccwpck_require__(7561);
+const promises_1 = __nccwpck_require__(3977);
 const node_process_1 = __nccwpck_require__(7742);
 const core = __importStar(__nccwpck_require__(4016));
-const prompts_json_1 = __importDefault(__nccwpck_require__(564));
+const utils_1 = __nccwpck_require__(8732);
 // Envinroment secrets get from https://huggingface.co/settings/tokens
 const API_TOKEN = node_process_1.env.HF_API_TOKEN;
-// The list of text-to-image models that support inference API
-const models = [
-    'runwayml/stable-diffusion-v1-5',
-    'CompVis/stable-diffusion-v1-4',
-    'stabilityai/stable-diffusion-xl-base-1.0',
-    'stabilityai/stable-diffusion-2-1',
-    'prompthero/openjourney',
-    'prompthero/openjourney-v4',
-];
-/** Get random element of any array and type safe */
-function getRandomElement(array) {
-    return array[Math.floor(Math.random() * array.length)];
-}
 /** Fetch text-to-image models with inference api */
-async function query(data) {
-    const model_id = getRandomElement(models);
+async function query(data, model_id) {
     const API_URL = `https://api-inference.huggingface.co/models/${model_id}`;
-    console.log(`Model: ${model_id}; prompt: ${data.inputs}`);
-    //Set outputs for other workflow steps to use
-    core.setOutput('model_id', model_id);
-    core.setOutput('prompt', data.inputs);
     const response = await fetch(API_URL, {
         headers: { Authorization: `Bearer ${API_TOKEN}` },
         method: 'POST',
@@ -24992,17 +24971,19 @@ async function query(data) {
 /** Get random prompt and query the inference api, then save the image */
 async function run() {
     try {
-        // Log the current timestamp
-        core.debug(new Date().toTimeString());
-        // Get random prompt from json file
-        const data = getRandomElement(prompts_json_1.default);
-        query(data).then(async (response) => {
+        const model_id = (0, utils_1.getRandomModel)();
+        const data = (0, utils_1.getRandomPrompt)();
+        query(data, model_id).then(async (response) => {
             const destinationPath = './assets/wallpaper.jpg';
             // create buffer from response
             const buffer = node_buffer_1.Buffer.from(response);
             // Save image to a local file
-            await (0, node_fs_1.writeFileSync)(destinationPath, buffer);
+            await (0, promises_1.writeFile)(destinationPath, buffer);
             core.debug(`Image saved to ${destinationPath}`);
+            // Set outputs for other workflow steps to use
+            core.setOutput('model_id', model_id);
+            core.setOutput('prompt', data.inputs);
+            (0, utils_1.updateReadme)(model_id, data.inputs);
         });
     }
     catch (error) {
@@ -25012,6 +24993,68 @@ async function run() {
     }
 }
 exports.run = run;
+
+
+/***/ }),
+
+/***/ 8732:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.updateReadme = exports.getRandomPrompt = exports.getRandomModel = void 0;
+const promises_1 = __nccwpck_require__(3977);
+const node_path_1 = __nccwpck_require__(9411);
+const prompts_json_1 = __importDefault(__nccwpck_require__(564));
+// The list of text-to-image models that support inference API
+const MODELS = [
+    'runwayml/stable-diffusion-v1-5',
+    'CompVis/stable-diffusion-v1-4',
+    'stabilityai/stable-diffusion-xl-base-1.0',
+    'stabilityai/stable-diffusion-2-1',
+    'prompthero/openjourney',
+    'prompthero/openjourney-v4',
+];
+// The patterns to set the caption of image
+const START_CAPTION = '<!-- START_CAPTION -->';
+const END_CAPTION = '<!-- END_CAPTION -->';
+/** Get random element of any array and type safe */
+function getRandomElement(array) {
+    return array[Math.floor(Math.random() * array.length)];
+}
+/** Get random model id from the list */
+function getRandomModel() {
+    return getRandomElement(MODELS);
+}
+exports.getRandomModel = getRandomModel;
+/** Get random prompt from json file */
+function getRandomPrompt() {
+    const data = getRandomElement(prompts_json_1.default);
+    return data;
+}
+exports.getRandomPrompt = getRandomPrompt;
+/** Update ReadMe file caption of image with model_id and prompt */
+async function updateReadme(model_id, prompt) {
+    console.log(`Model: ${model_id}; prompt: ${prompt}`);
+    try {
+        const filePath = (0, node_path_1.resolve)('./README.md');
+        const contents = await (0, promises_1.readFile)(filePath, { encoding: 'utf8' });
+        const firstRemains = contents
+            .substring(0, contents.indexOf(START_CAPTION))
+            .concat(START_CAPTION);
+        const lastRemains = contents.substring(contents.indexOf(END_CAPTION));
+        const result = `${firstRemains}\n\n\*${prompt}\*\nRun with model \[${model_id}\]\n\n${lastRemains}`;
+        await (0, promises_1.writeFile)(filePath, result);
+    }
+    catch (error) {
+        throw new Error(error.message);
+    }
+}
+exports.updateReadme = updateReadme;
 
 
 /***/ }),
@@ -25128,11 +25171,19 @@ module.exports = require("node:events");
 
 /***/ }),
 
-/***/ 7561:
+/***/ 3977:
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("node:fs");
+module.exports = require("node:fs/promises");
+
+/***/ }),
+
+/***/ 9411:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("node:path");
 
 /***/ }),
 
