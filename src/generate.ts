@@ -30,6 +30,9 @@ export async function run(): Promise<void> {
   try {
     const model_id = getRandomModel()
     const data = getRandomPrompt()
+    const prompt = data.inputs
+    console.log(`Model: ${model_id}; prompt: ${prompt}`)
+
     query(data, model_id).then(async (response) => {
       const destinationPath = './assets/wallpaper.jpg'
       // create buffer from response
@@ -40,8 +43,8 @@ export async function run(): Promise<void> {
 
       // Set outputs for other workflow steps to use
       core.setOutput('model_id', model_id)
-      core.setOutput('prompt', data.inputs)
-      updateReadme(model_id, data.inputs)
+      core.setOutput('prompt', prompt)
+      updateReadme(model_id, prompt)
     })
   } catch (error) {
     // Fail the workflow run if an error occurs

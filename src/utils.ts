@@ -34,7 +34,6 @@ export function getRandomPrompt(): { inputs: string } {
 
 /** Update ReadMe file caption of image with model_id and prompt */
 export async function updateReadme(model_id: string, prompt: string) {
-  console.log(`Model: ${model_id}; prompt: ${prompt}`)
   try {
     const filePath = resolve('./README.md')
     const contents = await readFile(filePath, { encoding: 'utf8' })

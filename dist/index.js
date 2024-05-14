@@ -24973,6 +24973,8 @@ async function run() {
     try {
         const model_id = (0, utils_1.getRandomModel)();
         const data = (0, utils_1.getRandomPrompt)();
+        const prompt = data.inputs;
+        console.log(`Model: ${model_id}; prompt: ${prompt}`);
         query(data, model_id).then(async (response) => {
             const destinationPath = './assets/wallpaper.jpg';
             // create buffer from response
@@ -24982,8 +24984,8 @@ async function run() {
             core.debug(`Image saved to ${destinationPath}`);
             // Set outputs for other workflow steps to use
             core.setOutput('model_id', model_id);
-            core.setOutput('prompt', data.inputs);
-            (0, utils_1.updateReadme)(model_id, data.inputs);
+            core.setOutput('prompt', prompt);
+            (0, utils_1.updateReadme)(model_id, prompt);
         });
     }
     catch (error) {
@@ -25039,7 +25041,6 @@ function getRandomPrompt() {
 exports.getRandomPrompt = getRandomPrompt;
 /** Update ReadMe file caption of image with model_id and prompt */
 async function updateReadme(model_id, prompt) {
-    console.log(`Model: ${model_id}; prompt: ${prompt}`);
     try {
         const filePath = (0, node_path_1.resolve)('./README.md');
         const contents = await (0, promises_1.readFile)(filePath, { encoding: 'utf8' });
