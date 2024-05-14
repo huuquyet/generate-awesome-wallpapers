@@ -25048,7 +25048,8 @@ async function updateReadme(model_id, prompt) {
             .substring(0, contents.indexOf(START_CAPTION))
             .concat(START_CAPTION);
         const lastRemains = contents.substring(contents.indexOf(END_CAPTION));
-        const result = `${firstRemains}\n\n\*${prompt}\*\nRun with model \[${model_id}\]\n\n${lastRemains}`;
+        const model_url = String.raw `https://hf.co/${model_id}`;
+        const result = `${firstRemains}\n\n  \*${prompt}\*\n  by \[${model_id}\]\(${model_url}\)\n\n${lastRemains}`;
         await (0, promises_1.writeFile)(filePath, result);
     }
     catch (error) {

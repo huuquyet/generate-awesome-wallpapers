@@ -1,3 +1,5 @@
+[![Generate awesome wallpapers](https://github.com/huuquyet/generate-awesome-wallpapers/actions/workflows/generate-awesome-wallpapers.yml/badge.svg)](https://github.com/huuquyet/generate-awesome-wallpapers/actions/workflows/generate-awesome-wallpapers.yml)
+
 # Generate awesome wallpapers with javascript action
 
 This action generate awesome wallpapers using HuggingFace Inference API (serverless) to call text-to-image models
