@@ -1,6 +1,10 @@
 name: Generate awesome wallpapers with Javascript action
 
 on:
+  # Run automatically everyday at 00:05
+  schedule:
+  - cron: "5 0 * * *"
+  
   # Allows to manually run the job at any time
   workflow_dispatch:
   # Allow workflow to be reusable
@@ -33,7 +37,7 @@ jobs:
 
     # Uses action in the root directory to generate awesome wallpapers
     - name: Generate awesome wallpapers
-      uses: ./
+      uses: huuquyet/generate-awesome-wallpapers@v1.1
       env: 
         HF_API_TOKEN: ${{ secrets.HF_API_TOKEN }}
 
