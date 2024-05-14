@@ -41,10 +41,25 @@ The random prompt get from json file
 
 ## Example usage
 
+### Create workflow
+
+Create `.github/workflows/main.yml` workflow with following steps to call the action
+
 ```yaml
-uses: huuquyet/generate-awesome-wallpapers@v1
+uses: huuquyet/generate-awesome-wallpapers@v1.1
 env: 
     HF_API_TOKEN: ${{ secrets.HF_API_TOKEN }}
+```
+
+See [this](.github/workflows/generate-awesome-wallpapers.yml) for example usage
+
+### Update your README
+
+Add a comment block to your `README.md` file
+
+```md
+<!-- START_CAPTION -->
+<!-- END_CAPTION -->
 ```
 
 Please check out [my profile](https://github.com/huuquyet) for live demo
