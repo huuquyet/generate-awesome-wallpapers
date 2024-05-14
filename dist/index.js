@@ -24972,10 +24972,14 @@ async function query(data, model_id) {
 async function run() {
     try {
         const model_id = (0, utils_1.getRandomModel)();
-        const data = (0, utils_1.getRandomPrompt)();
-        const prompt = data.inputs;
+        const prompt = (0, utils_1.getRandomPrompt)();
         console.log(`Model: ${model_id}; prompt: ${prompt}`);
-        query(data, model_id).then(async (response) => {
+        query({
+            inputs: prompt,
+            options: {
+                wait_for_model: true, // If the model is not ready, wait for it instead of receiving 503
+            },
+        }, model_id).then(async (response) => {
             const destinationPath = './assets/wallpaper.jpg';
             // create buffer from response
             const buffer = node_buffer_1.Buffer.from(response);
@@ -25036,7 +25040,7 @@ exports.getRandomModel = getRandomModel;
 /** Get random prompt from json file */
 function getRandomPrompt() {
     const data = getRandomElement(prompts_json_1.default);
-    return data;
+    return data.inputs;
 }
 exports.getRandomPrompt = getRandomPrompt;
 /** Update ReadMe file caption of image with model_id and prompt */

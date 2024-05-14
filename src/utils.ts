@@ -27,9 +27,9 @@ export function getRandomModel(): string {
 }
 
 /** Get random prompt from json file */
-export function getRandomPrompt(): { inputs: string } {
-  const data = getRandomElement(prompts)
-  return data
+export function getRandomPrompt(): string {
+  const data: { inputs: string } = getRandomElement(prompts)
+  return data.inputs
 }
 
 /** Update ReadMe file caption of image with model_id and prompt */

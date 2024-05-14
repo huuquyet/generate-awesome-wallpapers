@@ -8,7 +8,7 @@ import { getRandomModel, getRandomPrompt, updateReadme } from './utils'
 const API_TOKEN = env.HF_API_TOKEN
 
 /** Fetch text-to-image models with inference api */
-async function query(data: { inputs: string }, model_id: string) {
+async function query(data: any, model_id: string) {
   const API_URL = `https://api-inference.huggingface.co/models/${model_id}`
 
   const response = await fetch(API_URL, {
@@ -29,11 +29,18 @@ async function query(data: { inputs: string }, model_id: string) {
 export async function run(): Promise<void> {
   try {
     const model_id = getRandomModel()
-    const data = getRandomPrompt()
-    const prompt = data.inputs
+    const prompt = getRandomPrompt()
     console.log(`Model: ${model_id}; prompt: ${prompt}`)
 
-    query(data, model_id).then(async (response) => {
+    query(
+      {
+        inputs: prompt,
+        options: {
+          wait_for_model: true, // If the model is not ready, wait for it instead of receiving 503
+        },
+      },
+      model_id
+    ).then(async (response) => {
       const destinationPath = './assets/wallpaper.jpg'
       // create buffer from response
       const buffer = Buffer.from(response)
