@@ -1,35 +1,15 @@
 import { Buffer } from 'node:buffer'
-import { writeFileSync } from 'node:fs'
+import { writeFile } from 'node:fs/promises'
 import { env } from 'node:process'
 import * as core from '@actions/core'
-import { default as prompts } from '../assets/prompts.json'
+import { getRandomModel, getRandomPrompt, updateReadme } from './utils'
 
 // Envinroment secrets get from https://huggingface.co/settings/tokens
 const API_TOKEN = env.HF_API_TOKEN
-// The list of text-to-image models that support inference API
-const models: string[] = [
-  'runwayml/stable-diffusion-v1-5',
-  'CompVis/stable-diffusion-v1-4',
-  'stabilityai/stable-diffusion-xl-base-1.0',
-  'stabilityai/stable-diffusion-2-1',
-  'prompthero/openjourney',
-  'prompthero/openjourney-v4',
-]
-
-/** Get random element of any array and type safe */
-function getRandomElement<T>(array: Array<T>): T {
-  return array[Math.floor(Math.random() * array.length)]
-}
 
 /** Fetch text-to-image models with inference api */
-async function query(data: { inputs: string }) {
-  const model_id = getRandomElement(models)
+async function query(data: { inputs: string }, model_id: string) {
   const API_URL = `https://api-inference.huggingface.co/models/${model_id}`
-
-  console.log(`Model: ${model_id}; prompt: ${data.inputs}`)
-  //Set outputs for other workflow steps to use
-  core.setOutput('model_id', model_id)
-  core.setOutput('prompt', data.inputs)
 
   const response = await fetch(API_URL, {
     headers: { Authorization: `Bearer ${API_TOKEN}` },
@@ -48,18 +28,20 @@ async function query(data: { inputs: string }) {
 /** Get random prompt and query the inference api, then save the image */
 export async function run(): Promise<void> {
   try {
-    // Log the current timestamp
-    core.debug(new Date().toTimeString())
-    // Get random prompt from json file
-    const data: any = getRandomElement(prompts)
-
-    query(data).then(async (response) => {
+    const model_id = getRandomModel()
+    const data = getRandomPrompt()
+    query(data, model_id).then(async (response) => {
       const destinationPath = './assets/wallpaper.jpg'
       // create buffer from response
       const buffer = Buffer.from(response)
       // Save image to a local file
-      await writeFileSync(destinationPath, buffer)
+      await writeFile(destinationPath, buffer)
       core.debug(`Image saved to ${destinationPath}`)
+
+      // Set outputs for other workflow steps to use
+      core.setOutput('model_id', model_id)
+      core.setOutput('prompt', data.inputs)
+      updateReadme(model_id, data.inputs)
     })
   } catch (error) {
     // Fail the workflow run if an error occurs
