@@ -1,4 +1,4 @@
-[![Generate awesome wallpapers](https://github.com/huuquyet/generate-awesome-wallpapers/actions/workflows/generate-awesome-wallpapers.yml/badge.svg)](https://github.com/huuquyet/generate-awesome-wallpapers/actions/workflows/generate-awesome-wallpapers.yml)
+[![Generate awesome wallpapers](https://github.com/huuquyet/generate-awesome-wallpapers/actions/workflows/generate-awesome-wallpapers.yml/badge.svg)](https://github.com/huuquyet/generate-awesome-wallpapers/actions/workflows/generate-awesome-wallpapers.yml) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](.github/code_of_conduct.md)
 
 # Generate awesome wallpapers with javascript action
 
@@ -51,7 +51,7 @@ The random prompt get from json file
 Create `.github/workflows/main.yml` workflow with following steps to call the action
 
 ```yaml
-uses: huuquyet/generate-awesome-wallpapers@v1.1
+uses: huuquyet/generate-awesome-wallpapers@v1.2
 env: 
     HF_API_TOKEN: ${{ secrets.HF_API_TOKEN }}
 ```
