@@ -11,8 +11,8 @@ This action generate awesome wallpapers using HuggingFace Inference API (serverl
 
 <!-- START_CAPTION -->
 
-*A geometrically perfect formation of cherry blossoms, their delicate petals scattering in a gentle breeze*
-Run with model [stabilityai/stable-diffusion-2-1]
+  *A perfectly geometric formation of icy stalactites hanging from the ceiling of a hidden cave*
+  by [CompVis/stable-diffusion-v1-4](https://hf.co/CompVis/stable-diffusion-v1-4)
 
 <!-- END_CAPTION -->
 </center>
