@@ -36,7 +36,8 @@ export async function run(): Promise<void> {
       {
         inputs: prompt,
         parameters: {
-          negative_prompt: "blurry, ugly, disfigured, deformed, moss, darkness, fog, error, disgusting, low res, low quality, watermark, duplicate, overexposed, grainy, grayscale, monochrome",
+          negative_prompt:
+            'blurry, ugly, disfigured, deformed, moss, darkness, fog, error, disgusting, low res, low quality, watermark, duplicate, overexposed, grainy, grayscale, monochrome',
           num_inference_steps: 10,
         },
         options: {

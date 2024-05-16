@@ -5,8 +5,7 @@
   "repository": "git@github.com:huuquyet/generate-awesome-wallpapers",
   "author": "huuquyet <huuquyetng@gmail.com>",
   "bugs": {
-    "url": "https://github.com/huuquyet/generate-awesome-wallpapers/issues",
-    "email": "huuquyetng@gmail.com"
+    "url": "https://github.com/huuquyet/generate-awesome-wallpapers/issues"
   },
   "homepage": "https://github.com/marketplace/actions/generate-awesome-wallpapers",
   "license": "MIT",
@@ -49,29 +48,15 @@
     "verbose": true,
     "clearMocks": true,
     "testEnvironment": "node",
-    "moduleFileExtensions": [
-      "js",
-      "ts"
-    ],
-    "testMatch": [
-      "**/*.test.ts"
-    ],
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "/dist/"
-    ],
+    "moduleFileExtensions": ["js", "ts"],
+    "testMatch": ["**/*.test.ts"],
+    "testPathIgnorePatterns": ["/node_modules/", "/dist/"],
     "transform": {
       "^.+\\.ts$": "ts-jest"
     },
-    "coverageReporters": [
-      "json-summary",
-      "text",
-      "lcov"
-    ],
+    "coverageReporters": ["json-summary", "text", "lcov"],
     "collectCoverage": true,
-    "collectCoverageFrom": [
-      "./src/**"
-    ]
+    "collectCoverageFrom": ["./src/**"]
   },
   "keywords": [
     "github-actions",

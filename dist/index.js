@@ -24976,6 +24976,10 @@ async function run() {
         console.log(`Model: ${model_id}; prompt: ${prompt}`);
         query({
             inputs: prompt,
+            parameters: {
+                negative_prompt: 'blurry, ugly, disfigured, deformed, moss, darkness, fog, error, disgusting, low res, low quality, watermark, duplicate, overexposed, grainy, grayscale, monochrome',
+                num_inference_steps: 10,
+            },
             options: {
                 wait_for_model: true, // If the model is not ready, wait for it instead of receiving 503
             },
