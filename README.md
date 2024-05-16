@@ -11,8 +11,8 @@ This action generate awesome wallpapers using HuggingFace Inference API (serverl
 
 <!-- START_CAPTION -->
 
-  *A geometrically perfect formation of raindrops on bamboo leaves, their spherical shapes capturing miniature reflections of the surrounding landscape*
-  by [runwayml/stable-diffusion-v1-5](https://hf.co/runwayml/stable-diffusion-v1-5)
+  *A geometrically perfect formation of icicles hanging from the branches of a frost-laden tree*
+  by [stabilityai/stable-diffusion-xl-base-1.0](https://hf.co/stabilityai/stable-diffusion-xl-base-1.0)
 
 <!-- END_CAPTION -->
 </center>
