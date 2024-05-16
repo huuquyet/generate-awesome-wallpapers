@@ -11,8 +11,8 @@ This action generate awesome wallpapers using HuggingFace Inference API (serverl
 
 <!-- START_CAPTION -->
 
-  *A perfectly geometric formation of icy stalactites hanging from the ceiling of a hidden cave*
-  by [CompVis/stable-diffusion-v1-4](https://hf.co/CompVis/stable-diffusion-v1-4)
+  *A geometrically perfect formation of raindrops on bamboo leaves, their spherical shapes capturing miniature reflections of the surrounding landscape*
+  by [runwayml/stable-diffusion-v1-5](https://hf.co/runwayml/stable-diffusion-v1-5)
 
 <!-- END_CAPTION -->
 </center>
