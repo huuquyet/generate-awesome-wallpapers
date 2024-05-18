@@ -11,7 +11,7 @@ This action generate awesome wallpapers using HuggingFace Inference API (serverl
 
 <!-- START_CAPTION -->
 
-  *An intricate labyrinth engraved into the desert sand*
+  *A perfectly symmetrical formation of sand dunes, their sleek curves sculpted by the desert wind*
   by [stabilityai/stable-diffusion-xl-base-1.0](https://hf.co/stabilityai/stable-diffusion-xl-base-1.0)
 
 <!-- END_CAPTION -->
