@@ -11,8 +11,8 @@ This action generate awesome wallpapers using HuggingFace Inference API (serverl
 
 <!-- START_CAPTION -->
 
-  *A labyrinth of towering bamboo stalks, with their shadows forming complex, geometric patterns on the forest floor*
-  by [stabilityai/stable-diffusion-2-1](https://hf.co/stabilityai/stable-diffusion-2-1)
+  *An intricate labyrinth engraved into the desert sand*
+  by [stabilityai/stable-diffusion-xl-base-1.0](https://hf.co/stabilityai/stable-diffusion-xl-base-1.0)
 
 <!-- END_CAPTION -->
 </center>
