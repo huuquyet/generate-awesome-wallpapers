@@ -59,6 +59,7 @@ export async function run(): Promise<void> {
       updateReadme(model_id, prompt)
     })
   } catch (error) {
+    console.error(error)
     // Fail the workflow run if an error occurs
     if (error instanceof Error) core.setFailed(error.message)
   }

@@ -37,13 +37,18 @@ export async function updateReadme(model_id: string, prompt: string) {
   try {
     const filePath = resolve('./README.md')
     const contents = await readFile(filePath, { encoding: 'utf8' })
-    const firstRemains = contents
-      .substring(0, contents.indexOf(START_CAPTION))
-      .concat(START_CAPTION)
-    const lastRemains = contents.substring(contents.indexOf(END_CAPTION))
-    const model_url = String.raw`https://hf.co/${model_id}`
-    const result = `${firstRemains}\n\n  \*${prompt}\*\n  by \[${model_id}\]\(${model_url}\)\n\n${lastRemains}`
-    await writeFile(filePath, result)
+    const indexStart = contents.indexOf(START_CAPTION)
+    const indexEnd = contents.indexOf(END_CAPTION)
+
+    if (indexStart > 0 && indexEnd > indexStart) {
+      const firstRemains = contents.substring(0, indexStart).concat(START_CAPTION)
+      const lastRemains = contents.substring(indexEnd)
+      const model_url = String.raw`https://hf.co/${model_id}`
+      const result = `${firstRemains}\n\n  \*${prompt}\*\n  by \[${model_id}\]\(${model_url}\)\n\n${lastRemains}`
+      await writeFile(filePath, result)
+    } else {
+      throw new Error('Please add comment blocks in Readme file to update')
+    }
   } catch (error: any) {
     throw new Error(error.message)
   }

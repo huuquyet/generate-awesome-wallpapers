@@ -1,7 +1,7 @@
 {
   "name": "generate-awesome-wallpapers",
   "description": "Generate awesome wallpapers with HuggingFace Inference API (serverless)",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "repository": "git@github.com:huuquyet/generate-awesome-wallpapers",
   "author": "huuquyet <huuquyetng@gmail.com>",
   "bugs": {
@@ -9,7 +9,7 @@
   },
   "homepage": "https://github.com/marketplace/actions/generate-awesome-wallpapers",
   "license": "MIT",
-  "main": "src/index.ts",
+  "main": "./src/index.ts",
   "exports": {
     ".": "./dist/index.js"
   },

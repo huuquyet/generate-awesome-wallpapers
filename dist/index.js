@@ -24997,6 +24997,7 @@ async function run() {
         });
     }
     catch (error) {
+        console.error(error);
         // Fail the workflow run if an error occurs
         if (error instanceof Error)
             core.setFailed(error.message);
@@ -25052,13 +25053,18 @@ async function updateReadme(model_id, prompt) {
     try {
         const filePath = (0, node_path_1.resolve)('./README.md');
         const contents = await (0, promises_1.readFile)(filePath, { encoding: 'utf8' });
-        const firstRemains = contents
-            .substring(0, contents.indexOf(START_CAPTION))
-            .concat(START_CAPTION);
-        const lastRemains = contents.substring(contents.indexOf(END_CAPTION));
-        const model_url = String.raw `https://hf.co/${model_id}`;
-        const result = `${firstRemains}\n\n  \*${prompt}\*\n  by \[${model_id}\]\(${model_url}\)\n\n${lastRemains}`;
-        await (0, promises_1.writeFile)(filePath, result);
+        const indexStart = contents.indexOf(START_CAPTION);
+        const indexEnd = contents.indexOf(END_CAPTION);
+        if (indexStart > 0 && indexEnd > indexStart) {
+            const firstRemains = contents.substring(0, indexStart).concat(START_CAPTION);
+            const lastRemains = contents.substring(indexEnd);
+            const model_url = String.raw `https://hf.co/${model_id}`;
+            const result = `${firstRemains}\n\n  \*${prompt}\*\n  by \[${model_id}\]\(${model_url}\)\n\n${lastRemains}`;
+            await (0, promises_1.writeFile)(filePath, result);
+        }
+        else {
+            throw new Error('Please add comment blocks in Readme file to update');
+        }
     }
     catch (error) {
         throw new Error(error.message);

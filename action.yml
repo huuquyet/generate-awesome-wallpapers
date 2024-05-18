@@ -2,7 +2,7 @@ name: 'Generate awesome wallpapers'
 description: 'A javascript action to generate awesome wallpapers with HuggingFace Inference API (serverless)'
 author: huuquyet
 
-# Add your action's branding here. This will appear on the GitHub Marketplace.
+# Add your action's branding here. This will appear on the GitHub Marketplace. Icons from https://feathericons.com/
 branding:
   icon: 'image'
   color: 'yellow'
