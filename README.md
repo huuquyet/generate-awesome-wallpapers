@@ -11,8 +11,8 @@ This action generate awesome wallpapers using HuggingFace Inference API (serverl
 
 <!-- START_CAPTION -->
 
-  *A perfectly symmetrical formation of sand dunes, their sleek curves sculpted by the desert wind*
-  by [stabilityai/stable-diffusion-xl-base-1.0](https://hf.co/stabilityai/stable-diffusion-xl-base-1.0)
+  *A geometrically perfect formation of iridescent bubbles floating effortlessly over a tranquil river*
+  by [prompthero/openjourney](https://hf.co/prompthero/openjourney)
 
 <!-- END_CAPTION -->
 </center>
