@@ -11,8 +11,8 @@ This action generate awesome wallpapers using HuggingFace Inference API (serverl
 
 <!-- START_CAPTION -->
 
-  *A geometrically perfect formation of iridescent bubbles floating effortlessly over a tranquil river*
-  by [prompthero/openjourney](https://hf.co/prompthero/openjourney)
+  *An ancient, gnarled oak tree in the center of a geometric stone circle*
+  by [CompVis/stable-diffusion-v1-4](https://hf.co/CompVis/stable-diffusion-v1-4)
 
 <!-- END_CAPTION -->
 </center>
