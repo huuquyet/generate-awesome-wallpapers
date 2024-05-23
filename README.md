@@ -11,8 +11,8 @@ This action generate awesome wallpapers using HuggingFace Inference API (serverl
 
 <!-- START_CAPTION -->
 
-  *A flawless geometric ice structure on a tranquil, frozen lake*
-  by [prompthero/openjourney](https://hf.co/prompthero/openjourney)
+  *A geometrically perfect formation of dew-kissed fern fronds unfurling in a lush tropical rainforest*
+  by [stabilityai/stable-diffusion-2-1](https://hf.co/stabilityai/stable-diffusion-2-1)
 
 <!-- END_CAPTION -->
 </center>
