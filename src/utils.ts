@@ -28,8 +28,8 @@ export function getRandomModel(): string {
 
 /** Get random prompt from json file */
 export function getRandomPrompt(): string {
-  const data: { inputs: string } = getRandomElement(prompts)
-  return data.inputs
+  const prompt: string = getRandomElement(prompts)
+  return prompt
 }
 
 /** Update ReadMe file caption of image with model_id and prompt */

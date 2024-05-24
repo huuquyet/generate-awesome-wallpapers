@@ -28,8 +28,16 @@ async function query(data: any, model_id: string) {
 /** Get random prompt and query the inference api, then save the image */
 export async function run(): Promise<void> {
   try {
+    // Get prompt and random defined in action metadata file
+    const random = core.getInput('random')
+    const input = core.getInput('prompt')
+    let prompt = input.replace(/[\/\-\\^$*+?.;"()|[\]{}]/g, '') // sanitize input
+
+    // Get random prompt and model
+    if (random !== 'false') {
+      prompt = getRandomPrompt()
+    }
     const model_id = getRandomModel()
-    const prompt = getRandomPrompt()
     console.log(`Model: ${model_id}; prompt: ${prompt}`)
 
     query(
