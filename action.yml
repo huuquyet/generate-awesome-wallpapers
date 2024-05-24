@@ -7,6 +7,16 @@ branding:
   icon: 'image'
   color: 'yellow'
 
+# Enter the prompt to generate awesome wallpapers
+inputs:
+  prompt: # id of input
+    description: "Input prompt send to the action"
+    required: false
+  random:
+    description: "The flag to set random prompt"
+    required: false
+    default: 'false'
+
 # Ouput the random model and prompt that use to generate
 outputs:
   model_id:

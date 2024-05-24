@@ -17,6 +17,9 @@ This action generate awesome wallpapers using HuggingFace Inference API (serverl
 <!-- END_CAPTION -->
 </center>
 
+**Want to change another awesome wallpaper?** Just click [this](https://github.com/huuquyet/generate-awesome-wallpapers/issues/new?assignees=&labels=wallpaper&projects=&title=Please+a+magical+aurora+borealis+illuminating+the+icy+expanse+of+an+arctic+tundra&body=Feel+free+to+change+the+title+except+Please+then+press+Submit%21)
+*or create a new issue with title starts with `Please` and add `wallpaper` label*
+
 ## API Token
 
 ### `HF_API_TOKEN`
@@ -53,7 +56,9 @@ Create `.github/workflows/main.yml` workflow with following steps to call the ac
 ```yaml
 uses: huuquyet/generate-awesome-wallpapers@v1.2
 env: 
-    HF_API_TOKEN: ${{ secrets.HF_API_TOKEN }}
+  HF_API_TOKEN: ${{ secrets.HF_API_TOKEN }}
+with:
+  random: true
 ```
 
 See [this](.github/workflows/generate-awesome-wallpapers.yml) for example usage
