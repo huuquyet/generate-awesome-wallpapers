@@ -11,8 +11,8 @@ This action generate awesome wallpapers using HuggingFace Inference API (serverl
 
 <!-- START_CAPTION -->
 
-  *A geometrically perfect formation of dew-kissed fern fronds unfurling in a lush tropical rainforest*
-  by [stabilityai/stable-diffusion-2-1](https://hf.co/stabilityai/stable-diffusion-2-1)
+  *A magical Aurora Borealis illuminating the icy expanse of an Arctic tundra*
+  by [prompthero/openjourney-v4](https://hf.co/prompthero/openjourney-v4)
 
 <!-- END_CAPTION -->
 </center>
