@@ -11,8 +11,8 @@ This action generate awesome wallpapers using HuggingFace Inference API (serverl
 
 <!-- START_CAPTION -->
 
-  *A magical Aurora Borealis illuminating the icy expanse of an Arctic tundra*
-  by [prompthero/openjourney-v4](https://hf.co/prompthero/openjourney-v4)
+  *An intricate labyrinth of geometric shapes and lines forming a kaleidoscopic pattern*
+  by [CompVis/stable-diffusion-v1-4](https://hf.co/CompVis/stable-diffusion-v1-4)
 
 <!-- END_CAPTION -->
 </center>
