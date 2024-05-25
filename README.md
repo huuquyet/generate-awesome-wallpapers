@@ -11,8 +11,8 @@ This action generate awesome wallpapers using HuggingFace Inference API (serverl
 
 <!-- START_CAPTION -->
 
-  *An intricate labyrinth of geometric shapes and lines forming a kaleidoscopic pattern*
-  by [CompVis/stable-diffusion-v1-4](https://hf.co/CompVis/stable-diffusion-v1-4)
+  *A serene Zen garden with carefully placed rocks and raked sand*
+  by [stabilityai/stable-diffusion-2-1](https://hf.co/stabilityai/stable-diffusion-2-1)
 
 <!-- END_CAPTION -->
 </center>
