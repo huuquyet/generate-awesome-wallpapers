@@ -13,8 +13,8 @@ const MODELS: string[] = [
 ]
 
 // The patterns to set the caption of image
-const START_CAPTION = '<!-- START_CAPTION -->'
-const END_CAPTION = '<!-- END_CAPTION -->'
+const START_CAPTION: string = '<!-- START_CAPTION -->'
+const END_CAPTION: string = '<!-- END_CAPTION -->'
 
 /** Get random element of any array and type safe */
 function getRandomElement<T>(array: Array<T>): T {
@@ -28,27 +28,24 @@ export function getRandomModel(): string {
 
 /** Get random prompt from json file */
 export function getRandomPrompt(): string {
-  const prompt: string = getRandomElement(prompts)
-  return prompt
+  return getRandomElement(prompts)
 }
 
 /** Update ReadMe file caption of image with model_id and prompt */
 export async function updateReadme(model_id: string, prompt: string) {
   try {
-    const filePath = resolve('./README.md')
-    const contents = await readFile(filePath, { encoding: 'utf8' })
-    const indexStart = contents.indexOf(START_CAPTION)
-    const indexEnd = contents.indexOf(END_CAPTION)
+    const fileName = resolve('./README.md')
+    const contents = await readFile(fileName, { encoding: 'utf8' })
+    const regex = new RegExp(`(${START_CAPTION})[\\s\\S]*?(${END_CAPTION})`, '')
 
-    if (indexStart > 0 && indexEnd > indexStart) {
-      const firstRemains = contents.substring(0, indexStart).concat(START_CAPTION)
-      const lastRemains = contents.substring(indexEnd)
-      const model_url = String.raw`https://hf.co/${model_id}`
-      const result = `${firstRemains}\n\n  \*${prompt}\*\n  by \[${model_id}\]\(${model_url}\)\n\n${lastRemains}`
-      await writeFile(filePath, result)
-    } else {
-      throw new Error('Please add comment blocks in Readme file to update')
+    if (!regex.test(contents)) {
+      throw new Error('Please add comment blocks in README.md file and try again ⚠️')
     }
+
+    const result = String.raw`*${prompt}* by [${model_id}](https://hf.co/${model_id})`
+
+    const newContents = contents.replace(regex, `$1\n${result}\n$2`)
+    await writeFile(fileName, newContents)
   } catch (error: any) {
     throw new Error(error.message)
   }

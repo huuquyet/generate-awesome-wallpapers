@@ -24962,7 +24962,7 @@ async function query(data, model_id) {
         body: JSON.stringify(data),
     });
     if (!response.ok) {
-        throw new Error(`Failed to fetch image: ${response.statusText}`);
+        throw new Error(`Failed to fetch image: ${response.statusText} ⚠️`);
     }
     // Return arrayBuffer of blob
     const result = await response.arrayBuffer();
@@ -24970,22 +24970,25 @@ async function query(data, model_id) {
 }
 /** Get random prompt and query the inference api, then save the image */
 async function run() {
+    core.info('Generating an awesome wallpaper... 📁');
     try {
         // Get prompt and random defined in action metadata file
         const random = core.getInput('random');
         const input = core.getInput('prompt');
         let prompt = input.replace(/[\/\-\\^$*+?.;"()|[\]{}]/g, ''); // sanitize input
-        // Get random prompt and model
-        if (random !== 'false') {
+        // Get random prompt if input too short prompt
+        if (random !== 'false' || prompt.trim().length < 10) {
             prompt = (0, utils_1.getRandomPrompt)();
         }
         const model_id = (0, utils_1.getRandomModel)();
-        console.log(`Model: ${model_id}; prompt: ${prompt}`);
+        core.info(`Model: ${model_id}; prompt: ${prompt}`);
         query({
             inputs: prompt,
             parameters: {
                 negative_prompt: 'blurry, ugly, disfigured, deformed, moss, darkness, fog, error, disgusting, low res, low quality, watermark, duplicate, overexposed, grainy, grayscale, monochrome',
                 num_inference_steps: 10,
+                width: 512,
+                height: 512,
             },
             options: {
                 wait_for_model: true, // If the model is not ready, wait for it instead of receiving 503
@@ -24996,11 +24999,12 @@ async function run() {
             const buffer = node_buffer_1.Buffer.from(response);
             // Save image to a local file
             await (0, promises_1.writeFile)(destinationPath, buffer);
-            core.debug(`Image saved to ${destinationPath}`);
+            core.info(`Image saved to ${destinationPath} successfully ✅ 💖`);
             // Set outputs for other workflow steps to use
             core.setOutput('model_id', model_id);
             core.setOutput('prompt', prompt);
-            (0, utils_1.updateReadme)(model_id, prompt);
+            await (0, utils_1.updateReadme)(model_id, prompt);
+            core.info('Updated README.md file with caption of wallpaper ✅ 💖');
         });
     }
     catch (error) {
@@ -25051,27 +25055,21 @@ function getRandomModel() {
 exports.getRandomModel = getRandomModel;
 /** Get random prompt from json file */
 function getRandomPrompt() {
-    const prompt = getRandomElement(prompts_json_1.default);
-    return prompt;
+    return getRandomElement(prompts_json_1.default);
 }
 exports.getRandomPrompt = getRandomPrompt;
 /** Update ReadMe file caption of image with model_id and prompt */
 async function updateReadme(model_id, prompt) {
     try {
-        const filePath = (0, node_path_1.resolve)('./README.md');
-        const contents = await (0, promises_1.readFile)(filePath, { encoding: 'utf8' });
-        const indexStart = contents.indexOf(START_CAPTION);
-        const indexEnd = contents.indexOf(END_CAPTION);
-        if (indexStart > 0 && indexEnd > indexStart) {
-            const firstRemains = contents.substring(0, indexStart).concat(START_CAPTION);
-            const lastRemains = contents.substring(indexEnd);
-            const model_url = String.raw `https://hf.co/${model_id}`;
-            const result = `${firstRemains}\n\n  \*${prompt}\*\n  by \[${model_id}\]\(${model_url}\)\n\n${lastRemains}`;
-            await (0, promises_1.writeFile)(filePath, result);
+        const fileName = (0, node_path_1.resolve)('./README.md');
+        const contents = await (0, promises_1.readFile)(fileName, { encoding: 'utf8' });
+        const regex = new RegExp(`(${START_CAPTION})[\\s\\S]*?(${END_CAPTION})`, '');
+        if (!regex.test(contents)) {
+            throw new Error('Please add comment blocks in README.md file and try again ⚠️');
         }
-        else {
-            throw new Error('Please add comment blocks in Readme file to update');
-        }
+        const result = String.raw `*${prompt}* by [${model_id}](https://hf.co/${model_id})`;
+        const newContents = contents.replace(regex, `$1\n${result}\n$2`);
+        await (0, promises_1.writeFile)(fileName, newContents);
     }
     catch (error) {
         throw new Error(error.message);

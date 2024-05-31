@@ -17,7 +17,7 @@ async function query(data: any, model_id: string) {
     body: JSON.stringify(data),
   })
   if (!response.ok) {
-    throw new Error(`Failed to fetch image: ${response.statusText}`)
+    throw new Error(`Failed to fetch image: ${response.statusText} ⚠️`)
   }
 
   // Return arrayBuffer of blob
@@ -27,18 +27,19 @@ async function query(data: any, model_id: string) {
 
 /** Get random prompt and query the inference api, then save the image */
 export async function run(): Promise<void> {
+  core.info('Generating an awesome wallpaper... 📁')
   try {
     // Get prompt and random defined in action metadata file
     const random = core.getInput('random')
     const input = core.getInput('prompt')
     let prompt = input.replace(/[\/\-\\^$*+?.;"()|[\]{}]/g, '') // sanitize input
 
-    // Get random prompt and model
-    if (random !== 'false') {
+    // Get random prompt if input too short prompt
+    if (random !== 'false' || prompt.trim().length < 10) {
       prompt = getRandomPrompt()
     }
     const model_id = getRandomModel()
-    console.log(`Model: ${model_id}; prompt: ${prompt}`)
+    core.info(`Model: ${model_id}; prompt: ${prompt}`)
 
     query(
       {
@@ -47,6 +48,8 @@ export async function run(): Promise<void> {
           negative_prompt:
             'blurry, ugly, disfigured, deformed, moss, darkness, fog, error, disgusting, low res, low quality, watermark, duplicate, overexposed, grainy, grayscale, monochrome',
           num_inference_steps: 10,
+          width: 512,
+          height: 512,
         },
         options: {
           wait_for_model: true, // If the model is not ready, wait for it instead of receiving 503
@@ -59,12 +62,13 @@ export async function run(): Promise<void> {
       const buffer = Buffer.from(response)
       // Save image to a local file
       await writeFile(destinationPath, buffer)
-      core.debug(`Image saved to ${destinationPath}`)
+      core.info(`Image saved to ${destinationPath} successfully ✅ 💖`)
 
       // Set outputs for other workflow steps to use
       core.setOutput('model_id', model_id)
       core.setOutput('prompt', prompt)
-      updateReadme(model_id, prompt)
+      await updateReadme(model_id, prompt)
+      core.info('Updated README.md file with caption of wallpaper ✅ 💖')
     })
   } catch (error) {
     console.error(error)

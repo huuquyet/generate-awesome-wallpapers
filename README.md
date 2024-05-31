@@ -6,18 +6,15 @@ This action generate awesome wallpapers using HuggingFace Inference API (serverl
 
 **🖼️ This awesome wallpaper generated automatically everyday**
 
-<center>
+<div align="center">
   <img alt="Awesome Wallpapers" src="./assets/wallpaper.jpg">
 
 <!-- START_CAPTION -->
-
-  *A serene Zen garden with carefully placed rocks and raked sand*
-  by [stabilityai/stable-diffusion-2-1](https://hf.co/stabilityai/stable-diffusion-2-1)
-
+*A labyrinth of mirrored walls reflecting a mesmerizing sunset* by [prompthero/openjourney-v4](https://hf.co/prompthero/openjourney-v4)
 <!-- END_CAPTION -->
-</center>
+</div>
 
-**Want to change another awesome wallpaper?** Just click [this](https://github.com/huuquyet/generate-awesome-wallpapers/issues/new?assignees=&labels=wallpaper&projects=&title=Please+a+magical+aurora+borealis+illuminating+the+icy+expanse+of+an+arctic+tundra&body=Feel+free+to+change+the+title+except+Please+then+press+Submit%21)
+**Want to change another awesome wallpaper?** Just click [this](https://github.com/huuquyet/generate-awesome-wallpapers/issues/new?assignees=&labels=wallpaper&projects=&title=Please+a+serene+Zen+garden+with+carefully+placed+rocks+and+raked+sand&body=Feel+free+to+change+the+title+except+Please+then+press+Submit%21)
 *or create a new issue with title starts with `Please` and add `wallpaper` label*
 
 ## API Token
