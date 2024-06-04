@@ -6,11 +6,6 @@ name: generate-wallpapers-with-Python
 on:
   # Allows to manually run the job at any time
   workflow_dispatch:
-  # Allow workflow to be reusable
-  workflow_call:
-    secrets:
-      HF_API_TOKEN:
-        required: true
   # Run on every push or pull request on main branch
   # push:
   #   branches: [ "main" ]
