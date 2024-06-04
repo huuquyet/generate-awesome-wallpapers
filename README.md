@@ -10,7 +10,7 @@ This action generate awesome wallpapers using HuggingFace Inference API (serverl
   <img alt="Awesome Wallpapers" src="./assets/wallpaper.jpg">
 
 <!-- START_CAPTION -->
-*A labyrinth of mirrored walls reflecting a mesmerizing sunset* by [prompthero/openjourney-v4](https://hf.co/prompthero/openjourney-v4)
+*A geometrically perfect circle of pebbles arranged in a Zen garden, their uniformity providing a sense of balance* by [runwayml/stable-diffusion-v1-5](https://hf.co/runwayml/stable-diffusion-v1-5)
 <!-- END_CAPTION -->
 </div>
 
