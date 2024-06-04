@@ -6,11 +6,6 @@ name: generate-wallpapers-with-Python
 on:
   # Allows to manually run the job at any time
   workflow_dispatch:
-  # Allow workflow to be reusable
-  workflow_call:
-    secrets:
-      HF_API_TOKEN:
-        required: true
   # Run on every push or pull request on main branch
   # push:
   #   branches: [ "main" ]
@@ -45,7 +40,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        if [ -f src/requirements.txt ]; then pip install -r src/requirements.txt; fi
 
     # Linting with ruff
     - name: Lint with Ruff
@@ -64,7 +59,7 @@ jobs:
     - name: Generate awesome wallpapers
       env: 
         HF_API_TOKEN: ${{ secrets.HF_API_TOKEN }}
-      run: python generate.py
+      run: python src/generate.py
 
     # Push awesome wallpapers to main branch
     # Note: the following account information will not work on GHES
