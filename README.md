@@ -10,7 +10,7 @@ This action generate awesome wallpapers using HuggingFace Inference API (serverl
   <img alt="Awesome Wallpapers" src="./assets/wallpaper.jpg">
 
 <!-- START_CAPTION -->
-*A geometrically perfect circle of pebbles arranged in a Zen garden, their uniformity providing a sense of balance* by [runwayml/stable-diffusion-v1-5](https://hf.co/runwayml/stable-diffusion-v1-5)
+*A serene Japanese Zen garden, with meticulously raked sand and perfectly placed rocks* by [CompVis/stable-diffusion-v1-4](https://hf.co/CompVis/stable-diffusion-v1-4)
 <!-- END_CAPTION -->
 </div>
 
