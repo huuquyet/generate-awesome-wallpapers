@@ -5,7 +5,7 @@ import * as core from '@actions/core'
 import { getRandomModel, getRandomPrompt, updateReadme } from './utils'
 
 // Envinroment secrets get from https://huggingface.co/settings/tokens
-const API_TOKEN = env.HF_API_TOKEN
+const API_TOKEN = env['HF_API_TOKEN']
 
 /** Fetch text-to-image models with inference api */
 async function query(data: any, model_id: string) {

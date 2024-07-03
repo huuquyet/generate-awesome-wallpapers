@@ -1,13 +1,7 @@
 {
   "name": "generate-awesome-wallpapers",
   "description": "Generate awesome wallpapers with HuggingFace Inference API (serverless)",
-  "version": "1.2.3",
-  "repository": "git@github.com:huuquyet/generate-awesome-wallpapers",
-  "author": "huuquyet <huuquyetng@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/huuquyet/generate-awesome-wallpapers/issues"
-  },
-  "homepage": "https://github.com/marketplace/actions/generate-awesome-wallpapers",
+  "version": "1.3.0",
   "license": "MIT",
   "main": "./src/index.ts",
   "exports": {
@@ -22,7 +16,7 @@
     "ci-test": "bun test",
     "clean": "git clean -xdf",
     "coverage": "bunx make-coverage-badge --output-path ./assets/coverage.svg",
-    "lint": "bunx @biomejs/biome check --apply .",
+    "lint": "bunx @biomejs/biome check --write .",
     "package": "bunx ncc build src/index.ts -o dist --source-map --license licenses.txt",
     "package:watch": "bun package -- --watch",
     "test": "bunx jest"
@@ -31,9 +25,9 @@
     "@actions/core": "^1.10.1"
   },
   "devDependencies": {
-    "@types/bun": "^1.1.3",
+    "@types/bun": "^1.1.6",
     "@vercel/ncc": "^0.38.1",
-    "typescript": "^5.4.5"
+    "typescript": "^5.5.3"
   },
   "jest": {
     "preset": "ts-jest",
@@ -50,6 +44,12 @@
     "collectCoverage": true,
     "collectCoverageFrom": ["./src/**"]
   },
+  "repository": "git@github.com:huuquyet/generate-awesome-wallpapers",
+  "author": "huuquyet <huuquyetng@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/huuquyet/generate-awesome-wallpapers/issues"
+  },
+  "homepage": "https://github.com/marketplace/actions/generate-awesome-wallpapers",
   "keywords": [
     "github-actions",
     "python",

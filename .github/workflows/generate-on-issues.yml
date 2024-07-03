@@ -8,6 +8,11 @@ on:
       - reopened
       - labeled
 
+# Only a single workflow in the same concurrency will run at the same time
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
 jobs:
   generate_on_issues:
     if: startsWith(github.event.issue.title, 'Please') && github.event.label.name == 'wallpaper'
