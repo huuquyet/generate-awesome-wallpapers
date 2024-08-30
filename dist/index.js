@@ -26839,12 +26839,12 @@ const prompts_namespaceObject = JSON.parse('["A pristine, turquoise glacier lake
 
 // The list of text-to-image models that support inference API
 const MODELS = [
-    'runwayml/stable-diffusion-v1-5',
-    'CompVis/stable-diffusion-v1-4',
-    'stabilityai/stable-diffusion-xl-base-1.0',
-    'stabilityai/stable-diffusion-2-1',
-    'prompthero/openjourney',
-    'prompthero/openjourney-v4',
+    'black-forest-labs/FLUX.1-dev',
+    'black-forest-labs/FLUX.1-schnell',
+    'ByteDance/Hyper-SD',
+    'latent-consistency/lcm-lora-sdxl',
+    'Shakker-Labs/FLUX.1-dev-ControlNet-Union-Pro',
+    'stabilityai/stable-diffusion-3-medium-diffusers',
 ];
 // The patterns to set the caption of image
 const START_CAPTION = '<!-- START_CAPTION -->';

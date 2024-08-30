@@ -27,12 +27,12 @@ Then add to the [secrets for the repository](https://docs.github.com/en/actions/
 
 ## List of models
 
-- [runwayml/stable-diffusion-v1-5](https://hf.co/runwayml/stable-diffusion-v1-5)
-- [CompVis/stable-diffusion-v1-4](https://hf.co/CompVis/stable-diffusion-v1-4)
-- [stabilityai/stable-diffusion-xl-base-1.0](https://hf.co/stabilityai/stable-diffusion-xl-base-1.0)
-- [stabilityai/stable-diffusion-2-1](https://hf.co/stabilityai/stable-diffusion-2-1)
-- [prompthero/openjourney](https://hf.co/prompthero/openjourney)
-- [prompthero/openjourney-v4](https://hf.co/prompthero/openjourney-v4)
+- [black-forest-labs/FLUX.1-dev](https://hf.co/black-forest-labs/FLUX.1-dev)
+- [black-forest-labs/FLUX.1-schnell](https://hf.co/black-forest-labs/FLUX.1-schnell)
+- [ByteDance/Hyper-SD](https://hf.co/ByteDance/Hyper-SD)
+- [latent-consistency/lcm-lora-sdxl](https://hf.co/latent-consistency/lcm-lora-sdxl)
+- [Shakker-Labs/FLUX.1-dev-ControlNet-Union-Pro](https://hf.co/Shakker-Labs/FLUX.1-dev-ControlNet-Union-Pro)
+- [stabilityai/stable-diffusion-3-medium-diffusers](https://hf.co/stabilityai/stable-diffusion-3-medium-diffusers)
 
 ## Outputs
 
