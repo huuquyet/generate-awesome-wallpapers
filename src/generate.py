@@ -9,7 +9,7 @@ API_TOKEN = getenv("HF_API_TOKEN")
 MODELS = [
     'black-forest-labs/FLUX.1-dev',
     'black-forest-labs/FLUX.1-schnell',
-    'ByteDance/Hyper-SD',
+    'XLabs-AI/flux-ip-adapter',
     'latent-consistency/lcm-lora-sdxl',
     'Shakker-Labs/FLUX.1-dev-ControlNet-Union-Pro',
     'stabilityai/stable-diffusion-3-medium-diffusers',

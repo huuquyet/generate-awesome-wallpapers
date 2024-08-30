@@ -29,7 +29,7 @@ Then add to the [secrets for the repository](https://docs.github.com/en/actions/
 
 - [black-forest-labs/FLUX.1-dev](https://hf.co/black-forest-labs/FLUX.1-dev)
 - [black-forest-labs/FLUX.1-schnell](https://hf.co/black-forest-labs/FLUX.1-schnell)
-- [ByteDance/Hyper-SD](https://hf.co/ByteDance/Hyper-SD)
+- [XLabs-AI/flux-ip-adapter](https://hf.co/XLabs-AI/flux-ip-adapter)
 - [latent-consistency/lcm-lora-sdxl](https://hf.co/latent-consistency/lcm-lora-sdxl)
 - [Shakker-Labs/FLUX.1-dev-ControlNet-Union-Pro](https://hf.co/Shakker-Labs/FLUX.1-dev-ControlNet-Union-Pro)
 - [stabilityai/stable-diffusion-3-medium-diffusers](https://hf.co/stabilityai/stable-diffusion-3-medium-diffusers)
