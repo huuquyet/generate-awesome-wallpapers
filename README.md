@@ -27,12 +27,12 @@ Then add to the [secrets for the repository](https://docs.github.com/en/actions/
 
 ## List of models
 
-- [black-forest-labs/FLUX.1-dev](https://hf.co/black-forest-labs/FLUX.1-dev)
-- [black-forest-labs/FLUX.1-schnell](https://hf.co/black-forest-labs/FLUX.1-schnell)
-- [XLabs-AI/flux-ip-adapter](https://hf.co/XLabs-AI/flux-ip-adapter)
-- [latent-consistency/lcm-lora-sdxl](https://hf.co/latent-consistency/lcm-lora-sdxl)
-- [Shakker-Labs/FLUX.1-dev-ControlNet-Union-Pro](https://hf.co/Shakker-Labs/FLUX.1-dev-ControlNet-Union-Pro)
 - [stabilityai/stable-diffusion-3-medium-diffusers](https://hf.co/stabilityai/stable-diffusion-3-medium-diffusers)
+- [cagliostrolab/animagine-xl-3.1](https://hf.co/cagliostrolab/animagine-xl-3.1)
+- [KBlueLeaf/Kohaku-XL-Zeta](https://hf.co/KBlueLeaf/Kohaku-XL-Zeta)
+- [RunDiffusion/Juggernaut-X-v10](https://hf.co/RunDiffusion/Juggernaut-X-v10)
+- [Yntec/epiCPhotoGasm](https://hf.co/Yntec/epiCPhotoGasm)
+- [SG161222/Realistic_Vision_V6.0_B1_noVAE](https://hf.co/SG161222/Realistic_Vision_V6.0_B1_noVAE)
 
 ## Outputs
 

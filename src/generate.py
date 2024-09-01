@@ -7,12 +7,12 @@ import random
 API_TOKEN = getenv("HF_API_TOKEN")
 # The list of text-to-image models that support inference API
 MODELS = [
-    'black-forest-labs/FLUX.1-dev',
-    'black-forest-labs/FLUX.1-schnell',
-    'XLabs-AI/flux-ip-adapter',
-    'latent-consistency/lcm-lora-sdxl',
-    'Shakker-Labs/FLUX.1-dev-ControlNet-Union-Pro',
     'stabilityai/stable-diffusion-3-medium-diffusers',
+    'cagliostrolab/animagine-xl-3.1',
+    'KBlueLeaf/Kohaku-XL-Zeta',
+    'SG161222/Realistic_Vision_V6.0_B1_noVAE',
+    'RunDiffusion/Juggernaut-X-v10',
+    'Yntec/epiCPhotoGasm',
 ]
 
 random_model = random.choice(MODELS)
