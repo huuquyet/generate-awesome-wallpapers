@@ -28,11 +28,11 @@ Then add to the [secrets for the repository](https://docs.github.com/en/actions/
 ## List of models
 
 - [stabilityai/stable-diffusion-3-medium-diffusers](https://hf.co/stabilityai/stable-diffusion-3-medium-diffusers)
-- [cagliostrolab/animagine-xl-3.1](https://hf.co/cagliostrolab/animagine-xl-3.1)
-- [KBlueLeaf/Kohaku-XL-Zeta](https://hf.co/KBlueLeaf/Kohaku-XL-Zeta)
 - [RunDiffusion/Juggernaut-X-v10](https://hf.co/RunDiffusion/Juggernaut-X-v10)
 - [Yntec/epiCPhotoGasm](https://hf.co/Yntec/epiCPhotoGasm)
 - [SG161222/Realistic_Vision_V6.0_B1_noVAE](https://hf.co/SG161222/Realistic_Vision_V6.0_B1_noVAE)
+- [digiplay/AbsoluteReality_v1.8.1](https://hf.co/digiplay/AbsoluteReality_v1.8.1)
+- [Corcelio/mobius](https://hf.co/Corcelio/mobius)
 
 ## Outputs
 

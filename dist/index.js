@@ -26840,11 +26840,11 @@ const prompts_namespaceObject = JSON.parse('["A pristine, turquoise glacier lake
 // The list of text-to-image models that support inference API
 const MODELS = [
     'stabilityai/stable-diffusion-3-medium-diffusers',
-    'cagliostrolab/animagine-xl-3.1',
-    'KBlueLeaf/Kohaku-XL-Zeta',
     'SG161222/Realistic_Vision_V6.0_B1_noVAE',
     'RunDiffusion/Juggernaut-X-v10',
     'Yntec/epiCPhotoGasm',
+    'digiplay/AbsoluteReality_v1.8.1',
+    'Corcelio/mobius',
 ];
 // The patterns to set the caption of image
 const START_CAPTION = '<!-- START_CAPTION -->';
