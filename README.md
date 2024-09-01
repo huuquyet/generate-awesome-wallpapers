@@ -10,7 +10,7 @@ This action generate awesome wallpapers using HuggingFace Inference API (serverl
   <img alt="Awesome Wallpapers" src="./assets/wallpaper.jpg">
 
 <!-- START_CAPTION -->
-*A magnificent cascade of water tumbling down a cliff, creating a rainbow in its mist* by [cagliostrolab/animagine-xl-3.1](https://hf.co/cagliostrolab/animagine-xl-3.1)
+*An expansive lavender field, undulating gently under the soft breeze, with a majestic, snow-capped mountain range in the distance* by [digiplay/AbsoluteReality_v1.8.1](https://hf.co/digiplay/AbsoluteReality_v1.8.1)
 <!-- END_CAPTION -->
 </div>
 
