@@ -10,7 +10,7 @@ This action generate awesome wallpapers using HuggingFace Inference API (serverl
   <img alt="Awesome Wallpapers" src="./assets/wallpaper.jpg">
 
 <!-- START_CAPTION -->
-*An expansive lavender field, undulating gently under the soft breeze, with a majestic, snow-capped mountain range in the distance* by [digiplay/AbsoluteReality_v1.8.1](https://hf.co/digiplay/AbsoluteReality_v1.8.1)
+*A labyrinth of towering bamboo stalks, with their shadows forming complex, geometric patterns on the forest floor* by [digiplay/insaneRealistic_v1](https://hf.co/digiplay/insaneRealistic_v1)
 <!-- END_CAPTION -->
 </div>
 
