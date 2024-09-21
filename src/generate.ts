@@ -1,4 +1,3 @@
-import { Buffer } from 'node:buffer'
 import { writeFile } from 'node:fs/promises'
 import { env } from 'node:process'
 import * as core from '@actions/core'
@@ -58,10 +57,10 @@ export async function run(): Promise<void> {
       model_id
     ).then(async (response) => {
       const destinationPath = './assets/wallpaper.jpg'
-      // create buffer from response
-      const buffer = Buffer.from(response)
+      // create dataview from response
+      const dataView = new DataView(response)
       // Save image to a local file
-      await writeFile(destinationPath, buffer)
+      await writeFile(destinationPath, dataView)
       core.info(`Image saved to ${destinationPath} successfully ✅ 💖`)
 
       // Set outputs for other workflow steps to use

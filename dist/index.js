@@ -26821,8 +26821,6 @@ var __webpack_exports__ = {};
 // ESM COMPAT FLAG
 __nccwpck_require__.r(__webpack_exports__);
 
-;// CONCATENATED MODULE: external "node:buffer"
-const external_node_buffer_namespaceObject = require("node:buffer");
 ;// CONCATENATED MODULE: external "node:fs/promises"
 const promises_namespaceObject = require("node:fs/promises");
 ;// CONCATENATED MODULE: external "node:process"
@@ -26839,12 +26837,14 @@ const prompts_namespaceObject = JSON.parse('["A pristine, turquoise glacier lake
 
 // The list of text-to-image models that support inference API
 const MODELS = [
-    'stabilityai/stable-diffusion-3-medium-diffusers',
-    'SG161222/Realistic_Vision_V6.0_B1_noVAE',
-    'RunDiffusion/Juggernaut-X-v10',
-    'Yntec/epiCPhotoGasm',
-    'digiplay/AbsoluteReality_v1.8.1',
-    'Corcelio/mobius',
+    'black-forest-labs/FLUX.1-dev',
+    'Shakker-Labs/FLUX.1-dev-LoRA-Dark-Fantasy',
+    'XLabs-AI/flux-RealismLora',
+    'aleksa-codes/flux-ghibsky-illustration',
+    'prithivMLmods/Canopus-LoRA-Flux-FaceRealism',
+    'digiplay/insaneRealistic_v1',
+    'dreamlike-art/dreamlike-photoreal-2.0',
+    'CiroN2022/microverse-creator',
 ];
 // The patterns to set the caption of image
 const START_CAPTION = '<!-- START_CAPTION -->';
@@ -26880,7 +26880,6 @@ async function updateReadme(model_id, prompt) {
 }
 
 ;// CONCATENATED MODULE: ./src/generate.ts
-
 
 
 
@@ -26929,10 +26928,10 @@ async function run() {
             },
         }, model_id).then(async (response) => {
             const destinationPath = './assets/wallpaper.jpg';
-            // create buffer from response
-            const buffer = external_node_buffer_namespaceObject.Buffer.from(response);
+            // create dataview from response
+            const dataView = new DataView(response);
             // Save image to a local file
-            await (0,promises_namespaceObject.writeFile)(destinationPath, buffer);
+            await (0,promises_namespaceObject.writeFile)(destinationPath, dataView);
             core.info(`Image saved to ${destinationPath} successfully ✅ 💖`);
             // Set outputs for other workflow steps to use
             core.setOutput('model_id', model_id);

@@ -4,12 +4,14 @@ import { default as prompts } from '../assets/prompts.json'
 
 // The list of text-to-image models that support inference API
 const MODELS: string[] = [
-  'stabilityai/stable-diffusion-3-medium-diffusers',
-  'SG161222/Realistic_Vision_V6.0_B1_noVAE',
-  'RunDiffusion/Juggernaut-X-v10',
-  'Yntec/epiCPhotoGasm',
-  'digiplay/AbsoluteReality_v1.8.1',
-  'Corcelio/mobius',
+  'black-forest-labs/FLUX.1-dev',
+  'Shakker-Labs/FLUX.1-dev-LoRA-Dark-Fantasy',
+  'XLabs-AI/flux-RealismLora',
+  'aleksa-codes/flux-ghibsky-illustration',
+  'prithivMLmods/Canopus-LoRA-Flux-FaceRealism',
+  'digiplay/insaneRealistic_v1',
+  'dreamlike-art/dreamlike-photoreal-2.0',
+  'CiroN2022/microverse-creator',
 ]
 
 // The patterns to set the caption of image
