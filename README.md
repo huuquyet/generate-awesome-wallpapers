@@ -28,13 +28,11 @@ Then add to the [secrets for the repository](https://docs.github.com/en/actions/
 ## List of models
 
 - [black-forest-labs/FLUX.1-dev](https://hf.co/black-forest-labs/FLUX.1-dev)
-- [Shakker-Labs/FLUX.1-dev-LoRA-Dark-Fantasy](https://hf.co/Shakker-Labs/FLUX.1-dev-LoRA-Dark-Fantasy)
-- [XLabs-AI/flux-RealismLora](https://hf.co/XLabs-AI/flux-RealismLora)
-- [aleksa-codes/flux-ghibsky-illustration](https://hf.co/aleksa-codes/flux-ghibsky-illustration)
-- [prithivMLmods/Canopus-LoRA-Flux-FaceRealism](https://hf.co/prithivMLmods/Canopus-LoRA-Flux-FaceRealism)
+- [latent-consistency/lcm-lora-sdxl](https://hf.co/latent-consistency/lcm-lora-sdxl)
+- [stabilityai/stable-diffusion-3-medium-diffusers](https://hf.co/stabilityai/stable-diffusion-3-medium-diffusers)
 - [digiplay/insaneRealistic_v1](https://hf.co/digiplay/insaneRealistic_v1)
   [dreamlike-art/dreamlike-photoreal-2.0](https://hf.co/dreamlike-art/dreamlike-photoreal-2.0)
-  [CiroN2022/microverse-creator](https://hf.co/CiroN2022/microverse-creator)
+  [Yntec/ICantBelieveItSNotPhotography](https://hf.co/Yntec/ICantBelieveItSNotPhotography)
 
 ## Outputs
 

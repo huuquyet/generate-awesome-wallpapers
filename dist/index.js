@@ -26838,13 +26838,11 @@ const prompts_namespaceObject = JSON.parse('["A pristine, turquoise glacier lake
 // The list of text-to-image models that support inference API
 const MODELS = [
     'black-forest-labs/FLUX.1-dev',
-    'Shakker-Labs/FLUX.1-dev-LoRA-Dark-Fantasy',
-    'XLabs-AI/flux-RealismLora',
-    'aleksa-codes/flux-ghibsky-illustration',
-    'prithivMLmods/Canopus-LoRA-Flux-FaceRealism',
+    'latent-consistency/lcm-lora-sdxl',
+    'stabilityai/stable-diffusion-3-medium-diffusers',
     'digiplay/insaneRealistic_v1',
     'dreamlike-art/dreamlike-photoreal-2.0',
-    'CiroN2022/microverse-creator',
+    'Yntec/ICantBelieveItSNotPhotography',
 ];
 // The patterns to set the caption of image
 const START_CAPTION = '<!-- START_CAPTION -->';
