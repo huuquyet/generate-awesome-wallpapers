@@ -5,11 +5,11 @@ import { default as prompts } from '../assets/prompts.json'
 // The list of text-to-image models that support inference API
 const MODELS: string[] = [
   'black-forest-labs/FLUX.1-dev',
-  'latent-consistency/lcm-lora-sdxl',
-  'stabilityai/stable-diffusion-3-medium-diffusers',
   'digiplay/insaneRealistic_v1',
   'dreamlike-art/dreamlike-photoreal-2.0',
-  'Yntec/ICantBelieveItSNotPhotography',
+  'Yntec/epiCPhotoGasm',
+  'CompVis/stable-diffusion-v1-4',
+  'stable-diffusion-v1-5/stable-diffusion-v1-5',
 ]
 
 // The patterns to set the caption of image

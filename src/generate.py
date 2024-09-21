@@ -8,11 +8,11 @@ API_TOKEN = getenv("HF_API_TOKEN")
 # The list of text-to-image models that support inference API
 MODELS = [
   'black-forest-labs/FLUX.1-dev',
-  'latent-consistency/lcm-lora-sdxl',
-  'stabilityai/stable-diffusion-3-medium-diffusers',
   'digiplay/insaneRealistic_v1',
   'dreamlike-art/dreamlike-photoreal-2.0',
-  'Yntec/ICantBelieveItSNotPhotography',
+  'Yntec/epiCPhotoGasm',
+  'CompVis/stable-diffusion-v1-4',
+  'stable-diffusion-v1-5/stable-diffusion-v1-5',
 ]
 
 random_model = random.choice(MODELS)
@@ -32,7 +32,7 @@ with open("./assets/prompts.json") as fp:
 
 # Get random prompt from list
 random_prompt = random.choice(prompts)
-print(f"Model: {random_model}; prompt: {random_prompt['inputs']}")
+print(f"Model: {random_model}; prompt: {random_prompt}")
 
 # Generate wallpaper by random prompt
 data = query(random_prompt)
