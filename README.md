@@ -27,12 +27,12 @@ Then add to the [secrets for the repository](https://docs.github.com/en/actions/
 
 ## List of models
 
-- [black-forest-labs/FLUX.1-dev](https://hf.co/black-forest-labs/FLUX.1-dev)
 - [digiplay/insaneRealistic_v1](https://hf.co/digiplay/insaneRealistic_v1)
 - [dreamlike-art/dreamlike-photoreal-2.0](https://hf.co/dreamlike-art/dreamlike-photoreal-2.0)
-- [Yntec/epiCPhotoGasm](https://hf.co/Yntec/epiCPhotoGasm)
+- [Yntec/DreamPhotoGASM](https://hf.co/Yntec/epiCPhotoGasm)
 - [CompVis/stable-diffusion-v1-4](https://hf.co/CompVis/stable-diffusion-v1-4)
-- [stable-diffusion-v1-5/stable-diffusion-v1-5](https://hf.co/stable-diffusion-v1-5/stable-diffusion-v1-5)
+- [Corcelio/mobius](https://hf.co/Corcelio/mobius)
+- [stabilityai/stable-diffusion-2-1](https://hf.co/stabilityai/stable-diffusion-2-1)
 
 ## Outputs
 
