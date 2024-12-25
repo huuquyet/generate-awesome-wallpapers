@@ -10,7 +10,7 @@ This action generate awesome wallpapers using HuggingFace Inference API (serverl
   <img alt="Awesome Wallpapers" src="./assets/wallpaper.jpg">
 
 <!-- START_CAPTION -->
-*A vast expanse of luminescent jellyfish floating in the deep ocean* by [Yntec/epiCPhotoGasm](https://hf.co/Yntec/epiCPhotoGasm)
+*A field of vibrant sunflowers bathed in the golden glow of a late afternoon sun* by [stable-diffusion-v1-5/stable-diffusion-v1-5](https://hf.co/stable-diffusion-v1-5/stable-diffusion-v1-5)
 <!-- END_CAPTION -->
 </div>
 
